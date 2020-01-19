@@ -53,6 +53,8 @@ export class ProductListPage extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log("1");
+  console.log(state);
   return {
     products: state.products
   };

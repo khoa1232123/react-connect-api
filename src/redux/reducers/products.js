@@ -23,6 +23,7 @@ const products = (state = initialState, action) => {
       state.splice(index, 1);
       return [...state];
     case Types.ADD_PRODUCT:
+      state.push(product);
       return [...state];
     case Types.UPDATE_PRODUCT:
       index = findIndex(state, product.id);
