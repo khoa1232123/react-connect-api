@@ -68,7 +68,7 @@ export class ProductActionPage extends Component {
     } else {
       this.props.onAddProduct(product);
     }
-    history.goBack();
+    history.push('/products');
   };
 
   render() {

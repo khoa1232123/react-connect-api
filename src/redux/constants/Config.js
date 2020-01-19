@@ -1,1 +1,1 @@
-export const API_URL = "https://my-json-server.typicode.com/khoa1232123/server-01";
+export const API_URL = "https://5e1c9407db8a52001414d136.mockapi.io/api/v1";

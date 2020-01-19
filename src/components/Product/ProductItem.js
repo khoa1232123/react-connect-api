@@ -4,9 +4,15 @@ import { Link } from "react-router-dom";
 export class ProductItem extends Component {
 
   onDelete = (id) => {
-    if (confirm('Ban co chac muon xoa san pham nay?')) { //eslint-disable-line
+    if (window.confirm('Ban co chac muon xoa san pham nay?')) {
       this.props.onDelete(id);
     }
+  }
+
+  onUpdateStatus = (product) => {
+    product.status = !product.status;
+    this.props.onUpdateStatus(product);
+    console.log(product);
   }
 
   render() {
@@ -26,9 +32,9 @@ export class ProductItem extends Component {
         <td>{product.instock > 0 ? product.instock : "Het hang"}</td>
         <td>
           {product.status === true ? (
-            <label className="btn btn-info btn-sm mb-0">Hiển thị</label>
+            <label className="btn btn-info btn-sm mb-0" onClick={() => this.onUpdateStatus(product)}>Hiển thị</label>
           ) : (
-            <label className="btn btn-secondary btn-sm mb-0">Ẩn</label>
+            <label className="btn btn-secondary btn-sm mb-0" onClick={() => this.onUpdateStatus(product)}>Ẩn</label>
           )}
         </td>
         <td>

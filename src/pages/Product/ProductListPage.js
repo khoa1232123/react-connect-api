@@ -3,7 +3,7 @@ import ProductList from "../../components/Product/ProductList";
 import { Link } from "react-router-dom";
 import ProductItem from "../../components/Product/ProductItem";
 import { connect } from "react-redux";
-import { actFetchProductsRequest, actDeleteProductRequest } from "../../redux/actions";
+import { actFetchProductsRequest, actDeleteProductRequest, actUpdateProductRequest } from "../../redux/actions";
 
 export class ProductListPage extends Component {
   constructor(props) {
@@ -16,7 +16,7 @@ export class ProductListPage extends Component {
   componentDidMount() {
       this.props.fetchAllProducts();
   }
-
+  
   onDelete = id => {
     this.props.onDeleteProduct(id);
   };
@@ -24,7 +24,6 @@ export class ProductListPage extends Component {
 
   render() {
     var { products } = this.props;
-
     return (
       <>
         <Link to="/products/add" className="btn btn-info">
@@ -44,6 +43,7 @@ export class ProductListPage extends Component {
             product={product}
             index={index}
             onDelete={this.onDelete}
+            onUpdateStatus={this.props.onUpdateStatus}
           />
         );
       });
@@ -65,6 +65,9 @@ const mapDispatchToProps = (dispatch, props) => {
     },
     onDeleteProduct: (id) => {
       dispatch(actDeleteProductRequest(id));
+    },
+    onUpdateStatus: (product) => {
+      dispatch(actUpdateProductRequest(product));
     }
   };
 };

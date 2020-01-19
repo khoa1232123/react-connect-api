@@ -7,8 +7,12 @@ export class ShowProductList extends Component {
   componentDidMount() {
     this.props.fetchAllProducts();
   }
+
+
+
   render() {
     var { products } = this.props;
+    
     return <div className="card-group">{this.showProducts(products)}</div>;
   }
   showProducts(products) {

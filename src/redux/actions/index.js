@@ -66,6 +66,7 @@ export const actUpdateProduct = (product) => {
     product
   }
 }
+
 export const actUpdateProductRequest = (product) => {
   return (dispatch) => {
     return connectAPI(`products/${product.id}`, 'PUT', product).then(res => {
